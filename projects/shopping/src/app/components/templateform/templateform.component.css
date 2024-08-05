@@ -1,0 +1,9 @@
+.valid-style{
+    background-color: rgb(rgb(117, 248, 130), green, blue);
+}
+.invalid-style{
+    background-color: rgb(rgb(245, 145, 145), green, blue);
+}
+/* how to connect them with html ? -> 
+means when form is invalid we have to apply invalid-style  viceversa 
+<form [ngClass]="{'invalid-style':frmRegister.invalid, 'valid-style':frmRegister.valid}" #frmRegister="ngForm"> */

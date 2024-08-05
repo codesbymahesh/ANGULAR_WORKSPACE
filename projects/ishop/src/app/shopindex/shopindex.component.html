@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <header>
+        <div>
+            <span class="brand">Shopper</span>
+        </div>
+
+        <div class="navmenu">
+            
+            <a routerLink="home">Home</a>
+            <a routerLink="catalog">Catalog</a>
+            <a routerLink="shop">Shop</a>
+            <a routerLink="kids">Kids</a>
+            <a routerLink="men">Men</a>
+            <a routerLink="women">Women</a>
+
+        </div>
+
+        <div class="navicons">
+
+            <span class="bi bi-search"></span>
+            <span class="bi bi-heart"></span>
+            <span class="bi bi-person"></span>
+            <span class="bi bi-cart"></span>
+        </div>
+    </header>
+
+    <div class="mt-1">
+        <img src="assets/slider1.jpg" width="100%">
+    </div>
+
+    <!-- //step 2 -->
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

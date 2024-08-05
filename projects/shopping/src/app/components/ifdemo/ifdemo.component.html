@@ -1,0 +1,40 @@
+<div class="container-fluid row">
+    <nav class="mt-3 col-3 btn-group-vertical">
+        <button name="basic" (click)="ChangeView($event)" class="btn btn-danger">Basic Details</button>
+        <button  name="preview" (click)="ChangeView($event)" class="btn btn-success">Preview</button>
+        <button  name="description" (click)="ChangeView($event)" class="btn btn-primary">Description</button>
+        <button  name="Rating" (click)="ChangeView($event)" class="btn btn-warning">Rating</button>
+    </nav>
+    <main class="col-9">
+        <div [ngSwitch]="'ViewName'">
+            <div *ngSwitchCase="'basic'
+            ">
+                <h2>Basic details</h2>
+                <dl>
+                    <dt>Name</dt>
+                    <dd>cartoon</dd>
+                    <dt>price</dt>
+                    <dd>6000</dd>
+                </dl>
+            </div>
+            <div *ngSwitchCase="'preview'
+            ">
+                <h2>Preview</h2>
+                <img src="assets/cartoon.png" width="200" height="200">
+            </div>
+            <div *ngSwitchCase="'description'
+            ">
+                <h2>Description</h2>
+                <p>Something about cartoon</p>
+            </div>
+            <div *ngSwitchCase="'description'">
+                <h2>Rating</h2>
+                <span class="bi bi-start-fill">4.3[1000]</span>
+            </div>
+            <div *ngSwitchDefault>
+                <h2>Please select a view</h2>
+            </div>
+        </div>
+    </main>
+
+</div>

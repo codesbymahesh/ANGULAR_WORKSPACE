@@ -1,0 +1,9 @@
+<div class="d-flex flex-wrap">
+    <div *ngFor="let item of Products" class="card p-2 m-2" style="width:200px;">
+        <img [src]="item.image" class="card-img-top" height="140">
+        <div class="card-header" style="height: 160px;">
+            <p>{{item.title}}</p>
+        </div>
+
+    </div>
+</div>

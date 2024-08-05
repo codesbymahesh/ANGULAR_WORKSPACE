@@ -1,0 +1,27 @@
+<div class="container-fluid">
+     <h2>Register User</h2>     
+     <dl>
+        <dt>User Id</dt>
+        <!-- <dd><input name="UserId" ngmodel #UserId="ngModel" (keyup)="VerifyUserId(UserId.value)" type="text"></dd> -->
+
+        <!-- if you use (keypress) here it will show invalid  even when you typed valid for showing valid you have to press space(but this this is senseless it should quickly so we use keyup) -->
+
+        <dd><input (blur)="HideUserMessage()" (keyup)="VerifyUserId($event)" type="text"></dd>
+        <dd [ngClass]="{'text-success':IsUserValid, 'text-danger':IsUserInvalid}"> {{UserMessage}}</dd>
+
+        <dt>Password</dt>
+        <dd><input (keypress)="VerifyCaps($event)" type="password"></dd>
+        <dd *ngIf="ShowCapsWarn" class="text-warning"> <span class="bi bi-exclamation-triangle-fill"></span>Caps ON</dd>
+
+        <dt>select city</dt>
+        <dd>
+            <select (change)="VerifyCity($event)">
+                <option value="-1">Select your city</option>
+                <option value="Delhi">delhi</option>
+                <option value="goa">goa</option>
+            </select>
+        </dd>
+        <dd *ngIf="ShowCityError" class="text-danger">Please select your city</dd>
+
+     </dl>
+</div>

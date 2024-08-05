@@ -1,0 +1,12 @@
+<div class="container-fluid p-2 bg-dark text-white" style="height: 600px;">
+<h2>Parent component <button (click)="SendClick()"  class="btn btn-light">Send Message to child</button></h2>
+
+<p>{{MessageFromChild}}</p>
+
+<!-- accessed child component inside parent  -->
+
+<!-- <app-child [MessageFromParent]="'Waiting for Message..'"></app-child> -->
+<app-child (ChildClick)="GetMessageFromChild($event)" [MessageFromParent]="MessageToChild" [ProductDetails]="ObjectToChild"></app-child>
+
+
+</div>

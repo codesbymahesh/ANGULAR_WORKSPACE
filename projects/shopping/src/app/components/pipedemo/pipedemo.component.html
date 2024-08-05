@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    
+    <h2>Product details</h2>
+    <dl>
+        <dt>Name</dt>
+        <dd>{{Product.Name | uppercase}}</dd>
+        <dt>Price</dt>
+        <dd>{{Product.Price | number:'5.2'}}</dd>
+        <dt>Manufacture date</dt>
+        <dd>{{Product.Mfg | date:'long'}}</dd>
+    </dl>
+</div>

@@ -1,0 +1,78 @@
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-4">
+         
+         <!-- when form is invalid we have to apply invalid-style viceversa -->
+        <form [ngClass]="{'invalid-style':frmRegister.invalid, 'valid-style':frmRegister.valid}" #frmRegister="ngForm">
+
+            <h2>Register form</h2>
+            <dl>
+               
+                <dt>User Name</dt>
+                <dd><input name="UserName" required minlength="4" ngModel #UserName="ngModel" type="text"></dd>
+
+                <!-- until you write valid username in field it will show Nmae required in danger  -->
+                 <!-- username.touched means when we click on field and without typing in it left that field it will show error -->
+                <dd class="text-danger">
+                    <span *ngIf="UserName.touched&&UserName.invalid">Name Required</span>
+                </dd>
+
+                <dt>Password</dt>
+                <dd><input type="password" required pattern="(?=.*[A-Z])\w{4,10}"  name="password" ngModel #Password="ngModel"></dd>
+
+                <dd class="text-danger" *ngIf="Password.touched && Password.invalid">
+                    <span *ngIf="Password.errors?.['required']">Password Required</span>
+                    <span *ngIf="Password.errors?.['pattern']">password 4 to 10 chars with atleast 1 uppercase letter</span>
+                </dd>
+
+                <dt>Age</dt>
+                <dd><input name="Age" required ngModel #Age="ngModel" type="text"></dd>
+
+                <dt>Mobile</dt>
+                <dd><input name="Mobile" pattern="\+91\d{10}" required ngModel #Mobile="ngModel" type="text">
+                </dd>
+                
+            </dl>
+            <!-- until ivalid is true this button will not be visible -->
+            <button [disabled]="frmRegister.invalid">Submit</button>
+
+            <!-- pristine true means form is modified and then save button will be visible-->
+            <button [disabled]="frmRegister.pristine">Save</button>
+        </form>
+        </div>
+    
+        <!-- step 3 -->
+        <div class="col-8">
+            <h2>Status</h2>
+
+            <dt>Form Data</dt>
+            <!-- to access form details we use binding expression{{}} and this is an object it contains key and value , key is element and value means what value we enter in it, also we are using json pipe here to see what is there in obj -->
+            <dd>{{frmRegister.value | json }}</dd>
+
+            <!-- it will be true if you make some modification in form -->
+            <dt>Pristine</dt>
+            <dd>{{frmRegister.pristine}}</dd>
+
+            <!-- it will become false if you make modification -->
+            <dt>Dirty</dt>
+            <dd>{{frmRegister.dirty}}</dd>
+
+            <!-- it will be false when u clear all validation eg.required, minlength -->
+            <dt>Invalid</dt>
+            <dd>{{frmRegister.invalid}}</dd>
+
+            <dt>Valid</dt>
+            <dd>{{frmRegister.valid}}</dd>
+
+            <dt>Submitted</dt>
+            <dd>{{frmRegister.submitted}}</dd>
+
+        </div>
+
+    </div>
+    
+
+
+</div>

@@ -1,0 +1,29 @@
+<head>
+    <script>
+        var categories =["A", "B", "C"]
+        function bodyload(){
+            for(var item of categories){
+                var li = document.createElement("li");
+                li.innerHTML =item;
+                document.querySelector("ol").appendChild(li);
+
+                var option  =document.createElement("option");
+                // option dont have  innerHTML, option contains four attributes  value ,selected, disabled , text. 
+                option.text = item;
+                option.value =item;
+                document.querySelector("select").appendChild(option);
+            }
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h2>Categories</h2>
+    
+    <ol>
+    </ol>
+
+    <select>
+    </select>
+</body>
+
+<!-- this is not in shopping project so to run this run this with open with live server by right click  -->

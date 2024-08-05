@@ -1,0 +1,45 @@
+<!-- <div class="container-fluid mt-2">
+    <h2>One way Binding</h2>
+    
+    Name : <input type="text" [(ngModel)]="Name">
+    <p>Hello ! {{Name}}</p>
+</div> -->
+
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-3">
+            <h2>Register Product</h2>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text" ngModel name="Name" #Name="ngModel"  class="form-control"></dd>
+                <dt>Price</dt>
+                <dd><input type="text" ngModel name="Price" #Price="ngModel"  class="form-control"></dd>
+                <dd class="form-switch"><input class="form-check-input" ngModel name="Stock" #Stock="ngModel" type="checkbox">Available</dd>
+                <dt>City</dt>
+                <dd>
+                    <select ngModel name="City" #City="ngModel" class="form-select" >
+                        <option>Select a city</option>
+                        <option>Delhi</option>
+                        <option>Hydrabad</option>
+                    </select>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-9">
+            <h2>Product details</h2>
+            <dl class="row">
+                <dt class="col-3">Name</dt>
+                <dd class="col-9">{{Name.value}}</dd>
+                <dt class="col-3">price</dt>
+                <dd class="col-9">{{Price.value}}</dd>
+                <dt class="col-3">Stock</dt>
+                <dd class="col-9">{{(Stock.value==true)?"Available":"Out of stock"}}</dd>
+                <dt class="col-3">City</dt>
+                <dd class="col-9">{{City.value}}</dd>
+            </dl>
+
+        </div>
+
+    </div>
+
+</div>

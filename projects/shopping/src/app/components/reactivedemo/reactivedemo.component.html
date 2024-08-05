@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <h2>Register User</h2>
+
+    <!-- step 4- this form need to bind with (ts file) form group  -->
+     <!-- step 7 submit event and frmregister.value will send all details of form -->
+    <form [formGroup]="frmRegister" (submit)="SubmitForm(frmRegister.value)">
+        <dl>
+
+        <dt>User Name</dt>
+        <dd><input formControlName="UserName" type="text"></dd>
+        <dd class="text-danger" *ngIf="UserName.invalid && UserName.touched">
+            <!-- step 6, now through accesssor acess that -->
+            <span *ngIf="UserName.errors?.['required']">User Name required</span>
+            <span *ngIf="UserName.errors?.['minlength']">name too shorts..</span>
+
+        </dd>
+
+        <dt>Mobile</dt>
+        <dd><input formControlName="Mobile" type="text"></dd>
+        <dd class="text-danger" *ngIf="Mobile.invalid && Mobile.touched">
+            <span *ngIf="Mobile.errors?.['required']">Mobile required</span>
+            <span *ngIf="Mobile.errors?.['pattern']">Mobile Invalids</span>
+        </dd>
+
+        <!-- step 10 -->
+        <dt>Upload your Photos <button type="button" (click)="AddControls()" class="btn btn-link">More</button></dt>
+        <dd *ngFor="let item of Photos.controls; let i = index">
+            <input type="file" formControlName="i">
+
+            <!-- step 12- remove method -->
+            <button (click)="RemoveControl(i)" class="btn btn-link">Remove</button>
+        </dd>
+        </dl>
+
+        <button>Register</button>
+
+    </form>
+
+    <h2>Details</h2>
+    User Name : {{frmRegister.value.UserName}}
+
+</div>
